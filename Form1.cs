@@ -33,16 +33,11 @@ namespace Vocales
         {
             objeto.Text = (Convert.ToInt32(objeto.Text) + 1).ToString();
 
-            Dictionary<TextBox, int> diccionario = new Dictionary<TextBox, int>();
-            diccionario.Add(txtA, Convert.ToInt32(objeto.Text));
-            diccionario.Add(txtE, Convert.ToInt32(objeto.Text));
-            diccionario.Add(txtI, Convert.ToInt32(objeto.Text));
-            diccionario.Add(txtO, Convert.ToInt32(objeto.Text));
-            diccionario.Add(txtU, Convert.ToInt32(objeto.Text));
+            List<TextBox> listaVocales = new List<TextBox>() { txtA, txtE, txtI, txtO, txtU };
 
-            var item = diccionario.Keys.OrderByDescending(t => Convert.ToInt32(t.Text)).First();
+            var vocal = listaVocales.OrderByDescending(t=>Convert.ToInt32(t.Text)).First().Name.Substring(3);
 
-            lblLetraMayor.Text = string.Format("La mas alta es {0}", item.Name.Substring(3));
+            lblLetraMayor.Text = string.Format("La mas alta es {0}", vocal);
         }
 
         private void btnA_Click(object sender, EventArgs e)
